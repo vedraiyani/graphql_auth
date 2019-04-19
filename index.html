@@ -13,7 +13,7 @@
                   data: JSON.stringify({
                   query:`{greetingWithAuth}` }),
                   success: function(result) {
-                  $("#greetingDiv").html("<h1>"+result.data.greetingWithAuth+"</h1>")
+                    $("#greetingDiv").html("<h1>"+result.data.greetingWithAuth+"</h1>")
                   },
                   error:function(jQxhr,error) {
                      if(jQxhr.status == 401) {
@@ -40,6 +40,7 @@
                         .html("authenticated successfully")
                         .css({"color":"green",'font-weight':'bold'});
                         $("#greetingDiv").html('').css({'color':''});
+                        setTimeout(()=>$("#LoginSection").css("visibility","hidden"), 1000);
                      },
                      error:(xhr,err) =>  alert('error')
                   })
